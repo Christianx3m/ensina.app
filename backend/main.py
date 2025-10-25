@@ -1,37 +1,19 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
-from openai import OpenAI
-from dotenv import load_dotenv
-import os
+from routers import core_router
+from routers.zeus_router import router as zeus_router
+from routers.gaia_router import router as gaia_router
+from routers.pulga_router import router as pulga_router
+from routers.xavier_router import router as xavier_router
 
-# Carrega variáveis do .env
-load_dotenv()
-
-app = FastAPI()
-
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-class Question(BaseModel):
-    question: str
+app = FastAPI(title="ensina.app API", version="0.1.0")
 
 @app.get("/")
-def home():
+def root():
     return {"status": "AutoDev backend online"}
 
-@app.post("/zeus/ask")
-def ask_zeus(data: Question):
-    """
-    Zeus responde perguntas sobre programação e aprendizado de forma didática.
-    """
-    try:
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": "Você é Zeus, um mentor experiente que ensina programação de forma clara e paciente."},
-                {"role": "user", "content": data.question}
-            ]
-        )
-        return {"zeus": response.choices[0].message.content}
-
-    except Exception as e:
-        return {"error": str(e)}
+# Inclui os routers
+app.include_router(zeus_router)
+app.include_router(gaia_router)
+app.include_router(pulga_router)
+app.include_router(xavier_router)
+app.include_router(core_router.router)
