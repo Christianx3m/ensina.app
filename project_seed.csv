@@ -1,0 +1,9 @@
+Title,Status,Phase,Labels,Priority,Due,Body
+Backend FastAPI ok e routers dos agentes,Done,F1 Núcleo,"Agent: Zeus,Agent: Gaia,Agent: Pulga",High,2025-10-25,"Estrutura principal com /zeus, /gaia, /pulga"
+Professor Xavier integrado (router + prompts),Done,F1 Núcleo,"Agent: Xavier",High,2025-10-25,"Diretor que orquestra os agentes"
+Repi desenho e API base (WhatsApp),Planned,F2 Educacional,"Agent: Repi",High,2025-11-05,"Definir fluxos e endpoints /repi"
+Cadastro de usuário + convites (Postgres/Supabase),In Progress,F3 Multiusuário,"Agent: Xavier",Critical,2025-11-10,"Autenticação e base de perfis"
+Gamificação MVP (XP, badges),Planned,F4 Gamificação,"Agent: Xavier,Agent: Pulga",Medium,2025-11-20,"Definir esquema inicial de níveis"
+Marketplace SaaS e planos,Planned,F5 SaaS,"Agent: Xavier",Medium,2025-12-01,"Planos por créditos e pagamento"
+Deploy AWS/Vercel e secrets .env,Planned,F5 SaaS,"Agent: Zeus,Agent: Xavier",High,2025-11-25,"Pipelines e variáveis de ambiente"
+Pesquisa semântica no acervo,Planned,F4 Gamificação,"Agent: Gaia",Low,2025-12-05,"RAG básico"
